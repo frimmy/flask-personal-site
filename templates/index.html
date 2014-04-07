@@ -11,8 +11,10 @@
     
     <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
     <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
-    <link rel="stylesheet" href="stylesheets/app.css" />
-    <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/app.css') }}">
+
+    <script src="{{ url_for('static', filename='bower_components/modernizr/modernizr.js') }}"></script>
 
 
   </head>
@@ -142,9 +144,9 @@
       </div>
     </div>
   </footer>
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/templates/foundation.js"></script>
-    <script>
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}/static/"></script>
+<!--     <script src="../assets/js/templates/foundation.js"></script>
+ -->    <script>
       $(document).foundation();
 
       var doc = document.documentElement;
