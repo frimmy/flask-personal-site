@@ -1,14 +1,15 @@
 <!doctype html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Website</title>
 
-    
+
     <meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more." />
-    
+
     <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
     <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
 
@@ -17,89 +18,81 @@
     <script src="{{ url_for('static', filename='bower_components/modernizr/modernizr.js') }}"></script>
 
 
-  </head>
-  <body>
-    
+</head>
 
-<!-- Nav Bar -->
+<body>
 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="nav-bar right">
-       <ul class="button-group">
-         <li><a href="{{ url_for('home') }}" class="button">Home</a></li>
-         <li><a href="{{ url_for('about') }}" class="button">About</a></li>
-         <li><a href="{{ url_for('comedy') }}" class="button">Comedy</a></li>
-        </ul>
-      </div>
-      <h1>Blog <small>This is my personal website. It's awesome.</small></h1>
-      <hr />
+
+    <!-- Nav Bar -->
+
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="nav-bar right">
+                <ul class="button-group">
+                    {% set links = [('home','Home'),('about','About'),('comedy','Comedy')] %} {% for key,val in links %}
+                    <li><a href="{{ url_for(key) }}" class="button">{{ val }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <h1>Howdy!
+                <small>This is my personal website. It's awesome.</small>
+            </h1>
+            <hr />
+        </div>
     </div>
-  </div>
 
-  <!-- End Nav -->
+    <!-- End Nav -->
 
 
-  <!-- Main Page Content and Sidebar -->
-  {% block content %}
-    
-      {% endblock %}
+    <!-- Main Page Content and Sidebar -->
+    <div class="row">
+        <div class="large-12 columns" role="content">
+            <article>
+                {% block content %}
+
+                <p>HOWDY FOLKS. Feel free to peruse about</p>
+                <div class="large-6 columns">
+                    <img src="https://avatars0.githubusercontent.com/u/3891663?s=460" />
+                </div>
+                {% endblock %}
+                <!-- End Sidebar -->
+                <div class="large-6 columns">
+                    <img src="{{ url_for('static', filename='img/avitar.jpg') }}" />
+                </div>
+            </article>
+        </div>
+    </div>
+
+
 
 
     <!-- Sidebar -->
 
-    <aside class="large-3 columns">
-
-      <h5>Categories</h5>
-      <ul class="side-nav">
-        <li><a href="#">News</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Fun</a></li>
-        <li><a href="#">Weasels</a></li>
-      </ul>
-
-      <div class="panel">
-        <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-        <a href="#">Read More &rarr;</a>
-      </div>
-
-    </aside>
-
-    <!-- End Sidebar -->
-  </div>
-
-  <!-- End Main Content and Sidebar -->
+    <!-- End Main Content and Sidebar -->
 
 
-  <!-- Footer -->
+    <!-- Footer -->
 
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>&copy; Copyright no one at all. Go to town.</p>
+    <footer class="row">
+        <div class="large-12 columns">
+            <hr />
+            <div class="row">
+                <div class="large-6 columns">
+                    <p>&copy; Copyright Adrian Frimpong, all day'n all night y'all!</p>
+                </div>
+            </div>
         </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}/static/"></script>
-<!--     <script src="../assets/js/templates/foundation.js"></script>
- -->    <script>
-      $(document).foundation();
+    </footer>
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <!--     <script src="../assets/js/templates/foundation.js"></script>
+ -->
+    <script>
+    $(document).foundation();
 
-      var doc = document.documentElement;
-      doc.setAttribute('data-useragent', navigator.userAgent);
+    var doc = document.documentElement;
+    doc.setAttribute('data-useragent', navigator.userAgent);
     </script>
-  </body>
+</body>
+
 </html>
