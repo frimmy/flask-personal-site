@@ -27,7 +27,7 @@
 
     <div class="row">
         <div class="large-12 columns">
-            <div class="nav-bar right">
+            <div id="navbar" class="nav-bar right">
                 <ul class="button-group">
                     {% set links = [('home','Home'),('about','About'),('comedy','Comedy')] %} {% for key,val in links %}
                     <li><a href="{{ url_for(key) }}" class="button">{{ val }}</a>
